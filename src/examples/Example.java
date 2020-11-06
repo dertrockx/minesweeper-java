@@ -6,7 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-public class Example2 extends Application{
+
+public class Example extends Application{
     public static void main(String[] args) {
         launch(args);
     }
