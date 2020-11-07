@@ -9,7 +9,7 @@ public class Example extends Application{
     }
     @Override
     public void start(Stage stage) throws Exception {
-        HelloWorld gameStage = new HelloWorld();
-        gameStage.setStageComponents(stage);
+        GameStage gameStage = new GameStage();
+        gameStage.setStage(stage);
     }
 }

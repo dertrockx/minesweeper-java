@@ -1,21 +1,57 @@
 package examples;
 
 import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class HelloWorld {
     private Scene scene;
-    private VBox root;
+    private Stage stage;
+    private Group root;
+    private Canvas canvas;
+    private GraphicsContext gc;
+    private Image poro;
+    private Image buiscuit;
+    private int poroXpos;
+//    private VBox root;
 
     public HelloWorld(){
-        this.root = new VBox();
-        this.scene = new Scene(root, 500, 300);
+//        this.root = new VBox();
+//        this.scene = new Scene(root, 500, 300);
+        this.root = new Group();
+
+//        create a 400 x 400 application with black background
+        this.scene = new Scene(root, 400, 400, Color.BLACK);
+//        create a 400 x 400 canvas for "drawing" element
+        this.canvas = new Canvas(400, 400);
+        this.gc = canvas.getGraphicsContext2D();
+
+//        to resize image upon loading
+        this.poro = new Image("images/poro.png", 120, 120, false, false);
+        this.buiscuit = new Image("images/buiscuit.png", 50, 50, false, false);
+        this.poroXpos = 150;
     }
+
+    public void setStage(Stage stage) {
+        this.stage = stage;
+
+//        set stage elements
+        this.root.getChildren().add( canvas );
+        this.stage.setTitle("The first Game Application");
+        this.stage.setScene( this.scene );
+        this.stage.show();
+    }
+
+
 
     public void setStageComponents(Stage stage){
 //        Button btn = new Button("Click me!");
